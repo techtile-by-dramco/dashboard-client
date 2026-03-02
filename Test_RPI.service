@@ -1,0 +1,14 @@
+[Unit]
+Description=Test RPI Python Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/Dashboard_testRpi
+ExecStart=/home/pi/.venvs/rpi/bin/python -u /home/pi/Dashboard_testRpi/Test_RPI.py
+Restart=always
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
