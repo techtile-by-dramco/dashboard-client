@@ -1,0 +1,16 @@
+[Unit]
+Description=TechTile RPI Control Listener
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+# Change path if your file is in a different folder
+ExecStart=/usr/bin/python3 /home/pi/Dashboard_testRpi/RPI_control.py
+WorkingDirectory=/home/pi/Dashboard_testRpi
+User=root
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
